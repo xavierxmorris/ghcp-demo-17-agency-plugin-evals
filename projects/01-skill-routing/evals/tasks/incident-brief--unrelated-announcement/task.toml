@@ -1,0 +1,21 @@
+[metadata]
+instance_id = "incident-brief--unrelated-announcement"
+plugin = "incident-brief-skill"
+plugin_name = "incident-brief-skill"
+plugin_type = "skill"
+expected_tool = "NONE"
+expected_outcome = "The agent responds to the writing request without invoking the incident-brief skill and does not create incident-brief.md."
+skills = ["incident-brief"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The incident-brief skill is not invoked."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "No incident-brief.md artifact is created."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The response does not force incident terminology into the launch announcement."

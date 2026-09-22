@@ -1,0 +1,22 @@
+[metadata]
+instance_id = "runbook-lookup-mcp--unrelated-poem"
+plugin = "runbook-lookup-mcp"
+plugin_name = "runbook-lookup-mcp"
+plugin_type = "mcp"
+expected_tool = "NONE"
+expected_outcome = "The agent writes the requested short poem without calling either synthetic runbook tool."
+skills = ["runbook-routing"]
+mcp_tools = ["lookup_runbook", "list_runbooks"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "Neither lookup_runbook nor list_runbooks is called."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The response does not introduce operational runbook content into the poem."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The response completes the harmless writing request normally."

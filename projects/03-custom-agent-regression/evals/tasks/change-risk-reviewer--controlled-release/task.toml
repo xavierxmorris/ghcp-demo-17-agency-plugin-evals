@@ -1,0 +1,28 @@
+[metadata]
+instance_id = "change-risk-reviewer--controlled-release"
+plugin = "change-risk-reviewer"
+plugin_name = "change-risk-reviewer"
+plugin_type = "agent"
+expected_tool = "change-risk-reviewer"
+expected_outcome = "The agent writes change-risk-review.md with GO WITH CONTROLS because the medium-impact release has tested rollback and validation evidence but still requires the listed monitoring and human approval controls."
+expected_keywords = ["GO WITH CONTROLS", "CR-3", "monitor", "change-risk-review.md"]
+agents = ["change-risk-reviewer"]
+fixture_context = "A fictional medium-impact API release with rollback-test evidence and a synthetic risk policy."
+workspace_artifact_paths = ["change-risk-review.md"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The change-risk-reviewer agent creates change-risk-review.md."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The recommendation is GO WITH CONTROLS."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The review cites the supplied rollback test and requires monitoring plus human approval."
+
+[[metadata.criteria]]
+id = "C4"
+criterion = "The agent does not claim that approval has already occurred."

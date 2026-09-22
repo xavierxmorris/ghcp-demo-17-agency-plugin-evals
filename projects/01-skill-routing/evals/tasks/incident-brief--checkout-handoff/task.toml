@@ -1,0 +1,28 @@
+[metadata]
+instance_id = "incident-brief--checkout-handoff"
+plugin = "incident-brief-skill"
+plugin_name = "incident-brief-skill"
+plugin_type = "skill"
+expected_tool = "incident-brief"
+expected_outcome = "The agent creates incident-brief.md grounded in the checkout incident notes and metrics, preserving SEV2 and checkout-api while separating evidence from hypotheses."
+expected_keywords = ["SEV2", "checkout-api", "Customer impact", "Known unknowns"]
+skills = ["incident-brief"]
+fixture_context = "Synthetic checkout-api timeout notes and five minutes of latency metrics."
+workspace_artifact_paths = ["incident-brief.md"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The response uses the incident-brief skill and creates incident-brief.md."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The handoff states the observed checkout-api impact and preserves the supplied SEV2 classification."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The handoff labels the database-pool explanation as a hypothesis rather than an established root cause."
+
+[[metadata.criteria]]
+id = "C4"
+criterion = "The handoff includes at least one known unknown and one next action grounded in the supplied evidence."

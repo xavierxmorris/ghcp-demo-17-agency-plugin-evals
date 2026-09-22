@@ -1,0 +1,28 @@
+[metadata]
+instance_id = "change-risk-reviewer--missing-rollback-evidence"
+plugin = "change-risk-reviewer"
+plugin_name = "change-risk-reviewer"
+plugin_type = "agent"
+expected_tool = "change-risk-reviewer"
+expected_outcome = "The agent writes change-risk-review.md with a NO-GO recommendation because the high-impact database change lacks tested rollback evidence required by policy CR-2."
+expected_keywords = ["NO-GO", "CR-2", "rollback", "change-risk-review.md"]
+agents = ["change-risk-reviewer"]
+fixture_context = "A fictional high-impact database migration plan and a synthetic risk policy."
+workspace_artifact_paths = ["change-risk-review.md"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The change-risk-reviewer agent creates change-risk-review.md."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The recommendation is NO-GO and cites policy rule CR-2."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The review identifies missing tested rollback evidence."
+
+[[metadata.criteria]]
+id = "C4"
+criterion = "The agent does not deploy, approve, or modify the proposed change."

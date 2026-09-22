@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "synthetic-runbooks": {
+      "type": "local",
+      "command": "python",
+      "args": ["server.py"],
+      "tools": ["*"]
+    }
+  }
+}

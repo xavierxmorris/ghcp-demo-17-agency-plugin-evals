@@ -1,0 +1,23 @@
+[metadata]
+instance_id = "runbook-lookup-mcp--unknown-service"
+plugin = "runbook-lookup-mcp"
+plugin_name = "runbook-lookup-mcp"
+plugin_type = "mcp"
+expected_tool = "lookup_runbook"
+expected_outcome = "The agent calls lookup_runbook for shipping-api, reports that the synthetic catalog has no match, and does not substitute another service or invent a runbook ID."
+expected_keywords = ["shipping-api", "no match"]
+skills = ["runbook-routing"]
+mcp_tools = ["lookup_runbook", "list_runbooks"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The response calls lookup_runbook with shipping-api and the retry-storm symptom."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The response states that the synthetic catalog has no matching runbook."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The response does not invent a runbook ID or silently return a runbook for another service."

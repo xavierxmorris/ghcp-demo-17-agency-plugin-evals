@@ -1,0 +1,21 @@
+[metadata]
+instance_id = "change-risk-reviewer--unrelated-tagline"
+plugin = "change-risk-reviewer"
+plugin_name = "change-risk-reviewer"
+plugin_type = "agent"
+expected_tool = "NONE"
+expected_outcome = "The agent answers the harmless branding request without invoking the change-risk-reviewer or creating change-risk-review.md."
+agents = ["change-risk-reviewer"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The change-risk-reviewer agent is not invoked."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "No change-risk-review.md artifact is created."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The response does not force change-policy terminology into the tagline."

@@ -1,0 +1,28 @@
+[metadata]
+instance_id = "runbook-lookup-mcp--checkout-timeout"
+plugin = "runbook-lookup-mcp"
+plugin_name = "runbook-lookup-mcp"
+plugin_type = "mcp"
+expected_tool = "lookup_runbook"
+expected_outcome = "The agent calls lookup_runbook for checkout-api and the timeout symptom, then reports RB-CHK-017 and its first checks."
+expected_keywords = ["RB-CHK-017", "checkout-api", "database-pool", "region"]
+skills = ["runbook-routing"]
+mcp_tools = ["lookup_runbook", "list_runbooks"]
+fixture_context = "A synthetic checkout-api incident note describing request timeouts."
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The response calls lookup_runbook rather than inventing a runbook from general knowledge."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The tool call uses checkout-api as the service and a timeout-related symptom."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The response identifies RB-CHK-017 and summarizes the returned first checks."
+
+[[metadata.criteria]]
+id = "C4"
+criterion = "The response does not claim that the synthetic runbook proves a root cause."

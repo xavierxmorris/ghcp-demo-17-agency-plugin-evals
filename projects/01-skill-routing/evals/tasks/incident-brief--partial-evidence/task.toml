@@ -1,0 +1,28 @@
+[metadata]
+instance_id = "incident-brief--partial-evidence"
+plugin = "incident-brief-skill"
+plugin_name = "incident-brief-skill"
+plugin_type = "skill"
+expected_tool = "incident-brief"
+expected_outcome = "The agent creates an incident brief that marks severity as unconfirmed and explicitly lists missing impact and recovery evidence rather than inventing them."
+expected_keywords = ["Severity: unconfirmed", "Known unknowns", "inventory-api"]
+skills = ["incident-brief"]
+fixture_context = "A synthetic incident note with a service and symptom but no declared severity, customer-impact measurement, or recovery confirmation."
+workspace_artifact_paths = ["incident-brief.md"]
+baseline_compare = true
+
+[[metadata.criteria]]
+id = "C1"
+criterion = "The response uses the incident-brief skill and creates incident-brief.md."
+
+[[metadata.criteria]]
+id = "C2"
+criterion = "The handoff reports severity as unconfirmed."
+
+[[metadata.criteria]]
+id = "C3"
+criterion = "The handoff does not invent customer counts, root cause, owner, mitigation, or recovery time."
+
+[[metadata.criteria]]
+id = "C4"
+criterion = "The handoff identifies missing impact measurement and recovery confirmation as known unknowns."

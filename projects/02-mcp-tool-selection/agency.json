@@ -1,0 +1,12 @@
+{
+  "authors": [
+    {
+      "name": "Xavier X. Morris",
+      "email": "xavierxmorris@users.noreply.github.com",
+      "url": "https://github.com/xavierxmorris"
+    }
+  ],
+  "engines": ["copilot"],
+  "category": "developer-tools",
+  "platforms": ["windows", "linux", "macos"]
+}
