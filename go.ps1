@@ -11,9 +11,9 @@ $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {
     $projects = @(
-        'projects\01-skill-routing',
-        'projects\02-mcp-tool-selection',
-        'projects\03-custom-agent-regression'
+        (Join-Path 'projects' '01-skill-routing'),
+        (Join-Path 'projects' '02-mcp-tool-selection'),
+        (Join-Path 'projects' '03-custom-agent-regression')
     )
 
     if ($Manual) {
@@ -43,7 +43,7 @@ manual self-hosted Agency workflow.
         throw 'Unit tests failed.'
     }
 
-    & python scripts\check_repo.py
+    & python (Join-Path 'scripts' 'check_repo.py')
     if ($LASTEXITCODE -ne 0) {
         throw 'Repository checks failed.'
     }
@@ -86,7 +86,7 @@ manual self-hosted Agency workflow.
 
     $runId = (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [guid]::NewGuid().ToString('N').Substring(0, 8)
     $bundle = Join-Path $PSScriptRoot "out\demo-$runId"
-    & python scripts\render_catalog.py --out $bundle
+    & python (Join-Path 'scripts' 'render_catalog.py') --out $bundle
     if ($LASTEXITCODE -ne 0) {
         throw 'Report generation failed.'
     }
